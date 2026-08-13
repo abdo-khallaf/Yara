@@ -5,7 +5,7 @@
 const invitation = {
     name1: "Ahmed",                                  // Your name
     name2: "Yara",                                  // Her name
-    date: "2026--39",                               // Engagement date — format: YYYY-MM-DD
+    date: "2026-9-3",                               // Engagement date — format: YYYY-MM-DD
     time: "18:00",                                    // Engagement time — 24h format, e.g. "18:00"
     venue: "The Ivy Garden, Rosewood Hotel",           // Venue name
     locationUrl: "https://maps.google.com/",           // Google Maps link for "View Location" button
