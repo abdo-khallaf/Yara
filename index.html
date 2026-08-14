@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Our Engagement Invitation</title>
+<meta name="description" content="You are invited to celebrate our engagement.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Decorative grain / texture overlay -->
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- Floating particles / hearts container (populated by JS) -->
+<div class="particle-field" id="particleField" aria-hidden="true"></div>
+
+<!-- ============================= -->
+<!-- 1. SEAL / OPENING SCREEN      -->
+<!-- ============================= -->
+<section class="seal-screen" id="sealScreen">
+  <div class="seal-frame">
+    <div class="seal-ring">
+      <div class="seal-monogram" id="sealMonogram">&amp;</div>
+    </div>
+    <p class="seal-eyebrow">You Are Invited <span class="heart-glyph">❤</span></p>
+    <h1 class="seal-heading">To Celebrate Our Engagement</h1>
+    <div class="seal-divider" aria-hidden="true"><span></span><i class="diamond"></i><span></span></div>
+    <button class="btn-open" id="openInvitation">
+      <span class="btn-open-label">Open Invitation</span>
+      <span class="btn-open-icon">❦</span>
+    </button>
+  </div>
+  <div class="seal-flap seal-flap--top" aria-hidden="true"></div>
+  <div class="seal-flap seal-flap--bottom" aria-hidden="true"></div>
+</section>
+
+<!-- ============================= -->
+<!-- MAIN INVITATION (hidden until opened) -->
+<!-- ============================= -->
+<main class="invitation" id="invitation" aria-hidden="true">
+
+  <!-- Progress rail -->
+  <div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+  <!-- 2. HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-glow" aria-hidden="true"></div>
+    <p class="hero-preline reveal" data-reveal>Together with our families</p>
+
+    <h1 class="hero-names reveal" data-reveal>
+      <span class="name" id="nameOne">Name One</span>
+      <span class="hero-amp" aria-hidden="true">&amp;</span>
+      <span class="name" id="nameTwo">Name Two</span>
+    </h1>
+
+    <p class="hero-subline reveal" data-reveal>Are Getting Engaged</p>
+
+    <div class="hero-photo-wrap reveal" data-reveal>
+      <div class="hero-photo-frame">
+        <!-- ⭑ Same photo slot as below — replace assets/couple-photo.jpg to update everywhere ⭑ -->
+        <img src="assets/couple-photo.jpg" alt="Photo of the couple" class="hero-photo" id="couplePhotoHero">
+        <div class="hero-photo-glow" aria-hidden="true"></div>
+      </div>
+      <div class="hero-photo-ring" aria-hidden="true"></div>
+    </div>
+
+    <p class="hero-date reveal" data-reveal id="heroDate">Month Day, Year</p>
+
+    <div class="scroll-cue reveal" data-reveal>
+      <span>Scroll to Discover</span>
+      <div class="scroll-cue-line"><i></i></div>
+    </div>
+  </section>
+
+  <!-- 3. ROMANTIC INVITATION MESSAGE -->
+  <section class="message-section" id="message">
+    <div class="section-kicker reveal" data-reveal><i class="diamond"></i><span>Our Invitation</span><i class="diamond"></i></div>
+    <p class="message-text reveal" data-reveal>
+      With hearts full of happiness and gratitude, we are delighted to invite you to celebrate one of the most beautiful moments of our lives — our engagement.
+    </p>
+    <p class="message-text message-text--sub reveal" data-reveal>
+      Your presence would make our special day even more meaningful, and we would love to celebrate this beautiful beginning with you.
+    </p>
+  </section>
+
+  <!-- 4a. THE PROMISE — decorative illustration (hands exchanging a ring) -->
+  <section class="promise-section" id="promise">
+    <div class="section-kicker reveal" data-reveal><i class="diamond"></i><span>The Promise</span><i class="diamond"></i></div>
+    <div class="promise-frame reveal" data-reveal>
+      <img src="assets/hands-ring.jpg" alt="Illustration of two hands exchanging a ring, surrounded by soft lily flowers" class="promise-image">
+      <div class="promise-frame-line" aria-hidden="true"></div>
+    </div>
+    <p class="promise-caption reveal" data-reveal>A ring, a promise, a forever beginning&hellip;</p>
+  </section>
+
+  <!-- 4b. COUPLE SECTION -->
+  <section class="couple-section" id="couple">
+    <div class="couple-photo-wrap reveal" data-reveal>
+      <!-- ============================================================
+           ⭑ REPLACE YOUR PHOTO HERE ⭑
+           Swap the file at assets/couple-photo.jpg with your own photo
+           (same filename, ideally a 4:5 portrait crop). No HTML/CSS edit
+           needed — the placeholder graphic will simply be replaced.
+           ============================================================ -->
+      <img src="assets/couple-photo.jpg" alt="Photo of the couple" class="couple-photo" id="couplePhotoSection">
+      <div class="couple-photo-frame-line" aria-hidden="true"></div>
+    </div>
+    <p class="couple-caption reveal" data-reveal>And so, our beautiful story continues&hellip;</p>
+  </section>
+
+  <!-- 5. EVENT DETAILS -->
+  <section class="details-section" id="details">
+    <div class="section-kicker reveal" data-reveal><i class="diamond"></i><span>Join Us</span><i class="diamond"></i></div>
+    <h2 class="details-heading reveal" data-reveal>The Celebration</h2>
+
+    <div class="details-grid">
+      <div class="detail-card reveal" data-reveal>
+        <span class="detail-icon" aria-hidden="true">📅</span>
+        <span class="detail-label">Date</span>
+        <span class="detail-value" id="detailDate">Month Day, Year</span>
+      </div>
+      <div class="detail-card reveal" data-reveal>
+        <span class="detail-icon" aria-hidden="true">⏰</span>
+        <span class="detail-label">Time</span>
+        <span class="detail-value" id="detailTime">00:00</span>
+      </div>
+      <div class="detail-card reveal" data-reveal>
+        <span class="detail-icon" aria-hidden="true">📍</span>
+        <span class="detail-label">Venue</span>
+        <span class="detail-value" id="detailVenue">Venue Name</span>
+      </div>
+    </div>
+
+    <a href="#" target="_blank" rel="noopener" class="btn-location reveal" data-reveal id="locationBtn">
+      <span>View Location</span>
+      <span aria-hidden="true">➔</span>
+    </a>
+  </section>
+
+  <!-- 6. LIVE COUNTDOWN -->
+  <section class="countdown-section" id="countdown">
+    <div class="section-kicker reveal" data-reveal><i class="diamond"></i><span>The Big Day</span><i class="diamond"></i></div>
+    <h2 class="countdown-heading reveal" data-reveal>Counting Down to Our Special Day</h2>
+
+    <div class="countdown-grid reveal" data-reveal id="countdownGrid">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdDays">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-sep" aria-hidden="true">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdHours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-sep" aria-hidden="true">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdMinutes">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-sep" aria-hidden="true">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdSeconds">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+    <p class="countdown-today" id="countdownToday" hidden>Today is the day! ❤️</p>
+  </section>
+
+  <!-- 8. FINAL INVITATION SECTION -->
+  <section class="final-section" id="final">
+    <!-- ⭑ Same photo slot — replace assets/couple-photo.jpg to update everywhere ⭑ -->
+    <img src="assets/couple-photo.jpg" alt="" class="final-bg-photo" aria-hidden="true">
+    <div class="final-content">
+      <div class="final-hearts" aria-hidden="true">
+        <span>❤</span><span>❤</span><span>❤</span>
+      </div>
+      <h2 class="final-heading reveal" data-reveal>We Can&rsquo;t Wait to Celebrate With You <span class="heart-glyph">❤</span></h2>
+      <p class="final-sub reveal" data-reveal>Your presence is the most beautiful gift we could ask for.</p>
+      <p class="final-names reveal" data-reveal id="finalNames">Name One &amp; Name Two</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-divider" aria-hidden="true"><span></span><i class="diamond"></i><span></span></div>
+    <p>Made with <span class="heart-glyph">❤</span> for our forever</p>
+  </footer>
+
+</main>
+
+<!-- 7. MUSIC CONTROL -->
+<button class="music-btn" id="musicBtn" aria-label="Play background music" aria-pressed="false">
+  <span class="music-btn-ring" aria-hidden="true"></span>
+  <svg class="music-icon music-icon--play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>
+  <svg class="music-icon music-icon--pause" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" fill="currentColor"/></svg>
+</button>
+<audio id="bgMusic" loop preload="none">
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
